@@ -1,0 +1,20 @@
+*****************************
+* Lab 5 Synthesis Questions *
+*****************************
+Name(s):  Alan Li, Ivan Belikov
+NetID(s): tianyl28, ivanb13
+
+
+-----------------------------------------------------------
+1) Alignment: The alignment size is 16.
+   Reasoning:
+To allocate the smallest block, we need to create malloc (1), after that, we concatenate another block right after the first one with another malloc (1). The address difference between these two blocks are 32 bytes. When we allocate more than 24 bytes in a block the address difference changed to 48 bytes. When we allocate more than 40 bytes in a block the address difference changed to 64 bytes. So, the alignment size is 16.
+
+
+-----------------------------------------------------------
+2) Boundary Tag Size:  Boundary tag size is 8
+   Reasoning:
+From the first answer, we know that 24 bytes is the threshold of block size. At exactly 24 bytes we leave no internal fragmentation. The address difference is 32 bytes, so the tag size is 32-24=8 bytes.
+
+
+-----------------------------------------------------------

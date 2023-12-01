@@ -1,0 +1,14 @@
+---
+:id: 126332829
+:submitters:
+- :name: Ivan Belikov
+  :email: ivanb13@uw.edu
+- :name: Alan Liu Li
+  :email: tianyl28@uw.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-05-13 05:58:40.139079000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-05-12 22:58:40.139079000 Z
+:status: processed
+:score: 35.0

@@ -1,0 +1,28 @@
+******************************
+* Lab 1a Synthesis Questions *
+******************************
+Name(s): Ivan Belikov and Alan Li  
+NetID(s): 1960882 and 1938332
+
+
+-----------------------------------------------------------
+1) Use/Benefit and Equation:
+Pointer arithmetic can be useful in cases where you receive a pointer as a function argument that will be used to run over an array. You can use the pointer and pointer arithmetic, like incrementation, to loop over the array without needing to create an extra variable for an index. Additionally, pointer arithmetic can also be useful when the size of a data structure is unknown at compile time. 
+The relationship between arrays and pointers is that arrays are data structures that store elements of the same type in memory while pointers are able to store the address of where variables are stored in memory. Because array variables have addresses, in which the name of the array stores the address of the first element, a pointer can be pointed to the address of an array and used to navigate through the array from beginning to end even if the size is unknown. Pointers can access the beginning of an array through this general code:
+int arr[10];
+int* ptr = arr; // Pointer points to the first element of the array
+
+Equation to show relationship between pointers and arrays:
+*(ptr + 1) == arr[1]
+In pointer arithmetic, adding one to the pointer will cause it to jump 4 bytes, if it is an int pointer, which is equivalent to moving to the next index of the array. 
+
+-----------------------------------------------------------
+2) Steps:
+When finding the byte difference between two addresses, I first had to create two pointers with each pointer pointing to one of the addresses. When calculating the difference, I had to cast each pointer into a “long int” data type and store the difference in a “long int” variable as well. This is necessary to do in order to avoid compiler errors because we are performing pointer arithmetic in which each pointer is 8 bytes in a 64 bit machine, meaning that we need to cast into a long int (8 bytes) to ensure we don’t lose any bits. If we cast into an integer, which is 4 bytes, we will end up losing 4 bytes or 32 bits of data. 
+
+-----------------------------------------------------------
+3) Explain:
+For the function swap_ints(), the parameters must be pointers in order to access in memory the value of the variable they are pointing to, allowing the swapping of the two variable values in memory to occur through the dereferencing operator “*”. If the parameters were integers, then we would not be able to swap the values of the ints in memory because only the value of the variable will be passed into the function and not the actual variable storing the value in memory itself. 
+
+
+-----------------------------------------------------------

@@ -1,0 +1,32 @@
+******************************
+* Lab 1b Synthesis Questions *
+******************************
+Name(s): Alan Li, Ivan Belikov 
+NetID(s): tianyl28, Ivanb13
+
+-----------------------------------------------------------
+1) Benefit 1: 
+We would be able to represent more items with 8 bits (2^8 = 256 different items) rather than with 6 bits. We would be able to represent 192 more items with 8 bits than with 6 bits. (2^8 - 2^6 = 192)
+
+   Benefit 2: 
+By making the item ID and item count 8 bits or one byte, we would no longer need to use bit masks in order to access the different parts of a section, item ID and item count. Because a section is 16 bits or 2 bytes, we would only need to split a section into two bytes in order to get the item ID and item count. 
+
+   Benefit 3: 
+Because we use an 8 bit represenation for the count of an item in a section, rather than a 10 bit represenation, our functions that requrire manipulation on the bits of a sections item count, like add_items() and remove_items(), would be faster because we would only need to loop through 8 bits of data rather than 10 bits. This would cause a slight increase in performance speed and run time due to there being less bits to loop through.
+Because we use an 8 bit represenation for the item count and item ID, we could use unsigned chars rather than unsigned shorts to store this information on a section. Because unsigned chars are one byte, they would not have been able to store the data for a 10 bit represenation of the item count of a section but with an 8 bit representation we can store the item count of a section in an unsigned char, rather than an unsigned short. This allows us to use less memory expensive data types, increasing performance speed and run time.  
+
+   Drawback: 
+Because the lower 8 bits now represent the number of items in a section, rather than the lower 10 bits, each section will only be able to store a max of 8 of that specific item, rather than 10. Therefore, using an 8 bit represenation for the item count of a section rather than 10 bits, will cause the stores aisles and sections to hold fewer of that item as a whole due to there only being 8 available spots compared to 10 available spots.
+
+-----------------------------------------------------------
+2) Difference? YES and No
+
+   Explain:
+If both y are declared as int, no matter signed or unsigned, the system will treat y as -1. However, if we declare both variables float type, -1 will be -1.000000(which is essentially -1) but 0xFFFFFFFF will become 4294967296.000000
+
+-----------------------------------------------------------
+3) Explain:
+We shouldn't use == or != when comparing floating point numbers because they will not always yield an accurate comparison. This is due to the internal precision error of rounding up floating point numbers during compiling time. When being compared, the two values are not compared using their literal float value, rather they are rounded up and then compared, allowing for comparison errors due to rounding to occurr. This rounding occurrs at compile time because floating point numbers cannot be 100% accurately represented using binary numbers, requiring the need for rounding during comparisons and mathematical operations between floating point numbers. 
+
+   Considerations:
+When making a threshold for a comparison between two floating point numbers, we have to consider the precision. We need to see what is the precision between the two floating point numbers when creating a threshold. For example, if two numbers are 3.1428 and 3.1415, then they are same up to the precision 0.01, but after that, like 0.001 they are not same. We can then find the absolute value after subtracting one floating point number from another, then check whether the result is lesser than the precision value or not. By this we can decide that they are equivalent or not.
